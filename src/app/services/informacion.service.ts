@@ -4,13 +4,32 @@ import { Http } from '@angular/http';
 @Injectable()
 export class InformacionService {
   info:any={};
+  equipo:any={};
+
+
 
   constructor( public http:Http ) {
-      this.http.get('assets/data/info.pagina.json')
-        .subscribe( data=>{
-         // console.log( data.json() );
-          this.info= data.json();
-        })
+      this.carga_info();
+      this.carga_sobre_nostros();
    }
+
+   public carga_info(){
+      this.http.get('assets/data/info.pagina.json')
+      .subscribe( data=>{
+      // console.log( data.json() );
+
+        this.info= data.json();
+      })
+   }
+
+   public carga_sobre_nostros(){
+    this.http.get('https://portafolio-5c49f.firebaseio.com/equipo.json')
+    .subscribe( data=>{
+      //console.log( data.json() );
+
+      this.equipo= data.json();
+    })
+ }
+
 
 }
