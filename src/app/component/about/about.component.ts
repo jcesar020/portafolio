@@ -8,7 +8,10 @@ import { InformacionService } from "../../services/informacion.service";
 })
 export class AboutComponent  {
 
-  constructor(public _is:InformacionService) { }
+  constructor(public _is:InformacionService) {
+    // console.log( _is  );
+
+  }
 
 
 }
