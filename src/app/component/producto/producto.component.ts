@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import { ProductosService } from '../../services/productos.service';
+import { ActivatedRoute }from '@angular/router';
 
 
 
@@ -10,8 +10,11 @@ import { Component } from '@angular/core';
 })
 export class ProductoComponent {
 
-  constructor(  ) {
-
+  constructor( private route:ActivatedRoute ) {
+      route.params.subscribe(  parametros => {
+        console.log( parametros );
+        console.log( parametros['id'] );
+      })
    }
 
 
