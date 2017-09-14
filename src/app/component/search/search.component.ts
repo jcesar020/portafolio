@@ -11,10 +11,10 @@ export class SearchComponent implements OnInit {
 
   termino:string = undefined;
   constructor(private route:ActivatedRoute,
-              private _ps:ProductosService) {
+              public _ps:ProductosService) {
       this.route.params.subscribe( parametros => {
           this.termino = parametros['termino'];
-          console.log(this.termino);
+          // console.log(this.termino);
           this._ps.buscar_producto( this.termino );
       });
    }
